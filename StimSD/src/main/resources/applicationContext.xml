@@ -12,20 +12,12 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 
 
-	<jaxws:server id="servicioWS"
-		serviceClass="com.lab.sdt.ws.AperturaWS"
-		address="/procesarPeticion">
-		<jaxws:serviceBean>
-			<bean class="com.lab.sdt.ws.AperturaWSImpl" />
-		</jaxws:serviceBean>
-	</jaxws:server>
-
 	<cxf:bus>
 		<cxf:features>
 			<cxf:logging />
 		</cxf:features>
 	</cxf:bus>
-
+    
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />

@@ -7,6 +7,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>StimSD Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
   	<repositories>
 		<repository>
 			<id>prime-repo</id>
@@ -37,6 +38,14 @@
 	</properties>
 	
   <dependencies>
+  
+  <!-- Dependencia c3p0 -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>${c3p0.version}</version>
+		</dependency>
+		
   	<!-- Dependencias ORM MyBatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -54,6 +63,18 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.connector.version}</version>
+		</dependency>
+		
+		<!-- PrimeFaces -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>${primefaces.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>all-themes</artifactId>
+			<version>${primefaces.themes.version}</version>
 		</dependency>
 		
 		<!-- Dependencias Spring -->
@@ -149,6 +170,13 @@
           <target>1.6</target>
         </configuration>
     </plugin>
+    
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>${mybatis.generator.version}</version>
+			</plugin>
+			
   </plugins>
     
   </build>

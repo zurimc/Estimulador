@@ -18,8 +18,8 @@ public class ConsultaUsuarios {
 	@Autowired
 	private UsuarioMapper usuarioMapper;
 	
-	public void insertarUsuario(String username) throws Exception{
-	/*	Usuario user_1 = new Usuario();
+	public String insertarUsuario(String username) throws Exception{
+		/*Usuario user_1 = new Usuario();
 		user_1.setNombre("pedro_el");
 		user_1.setApellido1("mama");
 		user_1.setApellido2("jdoej");
@@ -36,6 +36,7 @@ public class ConsultaUsuarios {
 		user_1.setEstatus("pedro_el");
 		
 		insertarUsuario(user_1);*/
+		return "ok";
 	}
 	public void insertarUsuario(Usuario usuario)throws Exception{
 		usuarioMapper.insert(usuario);
