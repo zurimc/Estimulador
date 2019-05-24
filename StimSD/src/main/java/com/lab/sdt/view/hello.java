@@ -1,23 +1,34 @@
 package com.lab.sdt.view;
 
 
+
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
-import java.io.Serializable;
-import com.lab.sdt.util.MensajeG;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 
+import org.primefaces.context.RequestContext;
+
+import java.io.Serializable;
+
+import com.lab.sdt.util.MensajeG;
 import com.lab.sdt.service.ConsultaUsuarios;
-@ManagedBean(name = "editor")
-@SessionScoped
+
+
+
+@ManagedBean
+@ViewScoped
 public class hello implements Serializable {
  
 private static final long serialVersionUID = 1L;
  
 @ManagedProperty("#{consultaUsuarios}")
 private ConsultaUsuarios consultaUsuarios;
+
+
 
 private String name = "1";
 
@@ -32,13 +43,15 @@ public void init(){
 
 public void muestra() {
 	try {
-		consultaUsuarios.insertarUsuario("pedro");
+	consultaUsuarios.insertarUsuario("pedro");
 	MensajeG.mostrar("se muestra", FacesMessage.SEVERITY_WARN);
 	}catch(Exception e) {
 		MensajeG.mostrar(e.toString(), FacesMessage.SEVERITY_WARN);
 	}
 	
 	setResultado("Prueba base de datos");
+	
+	
 }
 
 
